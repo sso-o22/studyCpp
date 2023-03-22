@@ -17,8 +17,8 @@ int main()
 	printf("local n : %p\n", &n);
 	printf("global g : %p\n", &g);
 	printf("static c : %p\n", &c);
-	printf("const d : &p\n", &d);  // 동일한 메모리에 할당(뒤에 두글자 빼고 똑같음)
-	printf("array : &p\n", ary);  // 동일한 메모리에 할당(뒤에 두글자 빼고 똑같음)
+	printf("const d : %p\n", &d);  // 동일한 메모리에 할당(뒤에 두글자 빼고 똑같음)
+	printf("array : %p\n", ary);  // 동일한 메모리에 할당(뒤에 두글자 빼고 똑같음)
 
 	return 0;
 }
