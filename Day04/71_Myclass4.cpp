@@ -1,38 +1,35 @@
-// 힙영역에 저장
-
 #include <iostream>
 using namespace std;
+#pragma warning(disable:4996)
 
 class Myclass
 {
 private:
-	char id;
 	int age;
-	char name[10];
-public:
-	Myclass(char aid, int aage, const char* aname); // 생성자 원형(선언)
+	char id;
+	char* name;
 
-	void getData();  // 메소드 원형(선언)
+// 멤버함수(=메소드): 기능
+public:
+	Myclass(int mage, char mid, char* mname); // 생성자 원형
+	void getData(); // 메소드 원형(선언)   
 };
 
-Myclass::Myclass(char aid, int aage, const char* aname) : id(aid), age(aage)  // initialize
+Myclass::Myclass(int mage, char mid, char* mname) : age(mage), id(mid) // 생성자 정의, 멤버 이니셜라이저를 이용한 멤버 초기화
 {
-	printf("생성자 호출\n");
-	id = aid;
-	age = aage;
-	strcpy_s(name, 10, aname);
+	name = new char[10];
+	strcpy(name, mname);
 }
 
-void Myclass::getData()
+void Myclass::getData() // 메소드 정의
 {
-	cout << id << ' ' << name << ' ' << age << ' ' << endl;
+	cout << id << " " << name << " " << age << endl;
 }
 
 int main()
 {
-	Myclass o('1', 26, "soojung");
-	//	o.set('1', 26, "soojung");
-	o.getData();
+	Myclass sc1(25, 'W', "soojung");
+	sc1.getData();
 
 	return 0;
 }
