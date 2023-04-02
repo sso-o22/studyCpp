@@ -10,7 +10,7 @@ private:
 public:
 	Person(const char* aname, int abirth)  // 생성자
 	{
-		strcpy(name, aname);
+		strcpy(name, aname);  // 문자열은 대입연산자 못씀
 		birthday = abirth;
 	}
 	~Person() { }  // 소멸자
@@ -33,6 +33,10 @@ int main()
 
 	Person p3 = p2;
 	p3.showPerson();
+
+	Person p4("강감찬", 20000101);
+	p4 = p1;
+	p4.showPerson();
 
 	return 0;
 }
